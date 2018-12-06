@@ -1,7 +1,16 @@
 
 # Exploring Cancer Mortality Factors
+
+## Notes: 
+The purpose of this project is to replicate Dr. Martin Skarzynski's capstone project using Python. Dr. Skarzynski's capstone project was completed using R. It is titled "Exploratory Analysis of Factors Associated with Cancer Mortality in the National Health and Nutrition Examination Survey Dataset. This capstone project was in partial fulfillment of Dr. Skarzynski's MPH degree from Johns Hopkins University School of Public Health. 
+
+One major modification from Dr. Skarzynski's capstone is that in this project, the top 25 correlated predictor variables were chosen before inputing the data into a Cox Proportional Hazard Model. 
+
+The capstone project, datasets used, and R codes can be found in the following link: https://github.com/marskar/nhanes. 
+
 ## Background:
 The scale of cancer burden in the United States is huge with millions of new cancer cases a year. Susceptibility to cancer has been organized into modifiable and non-modifiable factors. Modifiable factors include body mass index (BMI) and cigarette use while non-modifiable factors include age, sex, and race/ethnicity. Modifiable cancers are responsible for a huge fraction of all cancer cases and cancer prevention interventions that target modifiable risk factors have been shown to be effective in reducing cancer cases and deaths. By using data science to map out cancer risk prediction models this could help pinpoint those at greatest risk for cancer. To do this a cancer risk prediction model much include both modifiable and non-modifiable risk factors. We started by analyzing data from the Third National Health and Nutrition Examination Survey (NHANES III) and the National Death Index (NDI) Public-Use Linked Mortality Files. The goal of our analysis was to examine the NHANES III data and identify variables useful for prediction of mortality risk in python. 
+
 ## Methods:
 The Third National Health and Nutrition Examination Survey (NHANES III) consisted of interview, medical examination, and laboratory data sets. This data was collected from 1988 to 1994 in the United States. NHANES III was linked with mortality data from the NDI death records by the National Center for Health Statistics. 
 
