@@ -36,9 +36,9 @@ Using Python's **Scikit-Learn**, we:
 2. Chose the 25 most correlated predictor variables (for cancer_mort outcome).  
 
 Using Python's **Lifelines**, we applied the Cox Proportional Hazards Model to the 25 predictor variables mentioned above. 
-> In addition to the 25 selected predictor variables, the model also included:
-1. A "survival object" created from the "cancer mortality" event and follow-up time variables.
-2. A "design object" created from the "primary sampling unit" (SDDPSU6), "Stratification" (SDSTRA6), and "Weight" (WTPFQX6) variables. 
+> In addition to the 25 selected predictor variables, the model also included:> 
+> 1. A "survival object" created from the "cancer mortality" event and follow-up time variables.
+> 2. A "design object" created from the "primary sampling unit" (SDDPSU6), "Stratification" (SDSTRA6), and "Weight" (WTPFQX6) variables. 
 
 Using Python's **Plotly**, the Cox Proportional Hazard model was represented in the form of a volcano plot. 
 
