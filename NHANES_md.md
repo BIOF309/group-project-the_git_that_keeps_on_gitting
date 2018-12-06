@@ -8,21 +8,23 @@ The Third National Health and Nutrition Examination Survey (NHANES III) consiste
 The exclusion factors included participants who: 
 1. were under 18 years of age, 
 2. had a self-reported cancer at baseline, and 
-3. had missing values for variables related for the study.
+3. had missing values for variables related for the study (SDDPSU6, SDSTRA6, WTPFQX6)
 
 In this study, the model used to relate the time that passed (before cancer death occurred) to risk factors was the Cox proportional hazard model. Specifically, the follow-up time variable (XXX) and cancer death were used as the survival outcome in the regression analysis. 
 
 Using Python's **pandas**, we: 
 1. Read the csv datasets into dataframes (i.e., adult, lab, exam, mort).
-2. Removed all participant identifiers (SEQN) with missing causes of death (UCOD_LEADING) or missing follow-up time from interview (PERMTH_INT). 
-3. Created a cancer mortality variable based on whether "Malignant neoplasms" (C00-C97) was recorded as the cause of death. 
-4. Merged all datasets using the participant identifier variables (SEQN).
-5. Removed baseline cancer cases using the HAC1N and HAC10 variables.
-6. Removed participants with missing relevant variables (SDDPSU6, SDSTRA6, and WtPFQX6) and variables with a time outside the date of interview (i.e., PERMTH_EXM).
+2. Removed participants with missing values for cause of death (UCOD_LEADING) or missing follow-up time from interview (PERMTH_INT).
+3. Merged all datasets using the participant identifier variables (SEQN).
+4. Removed participants with missing values for primary sampling units (SDPPSU6), stratificatioin (SDPSTRA6), and sampling weight (WTPFQX6).
+5. Removed baseline cancer cases using the HAC1N and HAC1O variables.
+6. Created a cancer mortality variable based on whether "Malignant neoplasms" (C00-C97) was recorded as the cause of death
+7. Remove variables (columns) that were non-numeric or only had one unique value 
+8. Select variables (columns) with less than 10% missing values (NaN
 
 Using Python's **Scikit-Learn**, we:
 1. Removed highly correlated variables (r≥0.9).
-2. Chose the 25 most correlated predictor variables (i.e., the predictor variables with the highest r^2 values).  
+2. Chose the 25 most correlated predictor variables (for cancer_mort outcome).  
 
 Using Python's **Lifelines**, we applied the Cox Proportional Hazards Model to the 25 predictor variables mentioned above. 
 > In addition to the 25 selected predictor variables the model also included:
