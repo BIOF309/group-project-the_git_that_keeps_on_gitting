@@ -44,5 +44,7 @@ Using Python's **Plotly**, the Cox Proportional Hazard model was represented in 
 
 ## Results:
 ## Discussion:
+With the use of variables fitted to a cancer risk prediction model, this can be an effective strategy to explore large datasets such as NHANES III.
+
 ## Conclusion: 
 ## References: 
