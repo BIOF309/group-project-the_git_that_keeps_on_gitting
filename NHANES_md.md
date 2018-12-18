@@ -2,7 +2,7 @@
 # Exploring Cancer Mortality Factors
 
 ## Notes: 
-The purpose of this project is to replicate Dr. Martin Skarzynski's capstone project, which was completed using R, using Python. The capstone project is titled "Exploratory Analysis of Factors Associated with Cancer Mortality in the National Health and Nutrition Examination Survey Dataset," which was completed in partial fulfillment of Dr. Skarzynski's MPH degree from Johns Hopkins University School of Public Health. 
+The purpose of this project is to replicate Dr. Martin Skarzynski's capstone project using Python. Dr. Skarzynski's capstone project was completed using R. It is titled "Exploratory Analysis of Factors Associated with Cancer Mortality in the National Health and Nutrition Examination Survey Dataset. This capstone project was in partial fulfillment of Dr. Skarzynski's MPH degree from Johns Hopkins University School of Public Health. 
 
 One major modification from Dr. Skarzynski's capstone is that in this project, the top 25 correlated predictor variables were chosen before inputing the data into a Cox Proportional Hazard Model. 
 
