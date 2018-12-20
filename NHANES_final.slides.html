@@ -13268,7 +13268,10 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Methods:">Methods:<a class="anchor-link" href="#Methods:">&#182;</a></h2><p>NHANES III consisted of interview, medical examination, and laboratory data sets. This data was collected from 1988 to 1994 in the United States. NHANES III was linked with mortality data from the NDI death records by the National Center for Health Statistics.</p>
+<h2 id="Methods:">Methods:<a class="anchor-link" href="#Methods:">&#182;</a></h2><ul>
+<li>NHANES III consisted of interview, medical examination, and laboratory data sets. This data was collected from 1988 to 1994 in the United States. </li>
+<li>NHANES III was linked with mortality data from the NDI death records by the National Center for Health Statistics. </li>
+</ul>
 
 </div>
 </div>
@@ -13276,8 +13279,15 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Methods-Step-1:">Methods Step 1:<a class="anchor-link" href="#Methods-Step-1:">&#182;</a></h3><p>Read NHANES III and NDI datasets into pandas dataframes: (4 in total, labeled as: mort, lab, adult, and exam)</p>
-<p>Note: When reading in csv files as pandas dataframes, python replaces blank cells (in csv) as blank strings of variable number of spaces (in dataframe). In order for python to convert all empty cells to NaN, we had to include the function 'skipinitialspace=True'.</p>
+<h3 id="Methods-Step-1:">Methods Step 1:<a class="anchor-link" href="#Methods-Step-1:">&#182;</a></h3><ul>
+<li><p>Read NHANES III and NDI datasets into pandas dataframes: (4 in total, labeled as: mort, lab, adult, and exam)</p>
+</li>
+<li><p>Note: When reading in csv files as pandas dataframes, python replaces blank cells (in csv) as blank strings of variable number of spaces (in dataframe).</p>
+<ul>
+<li>In order for python to convert all empty cells to NaN, we had to include the function 'skipinitialspace=True'. </li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13350,16 +13360,18 @@ memory usage: 3.6+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Methods-Step-2:">Methods Step 2:<a class="anchor-link" href="#Methods-Step-2:">&#182;</a></h3><p>Clean NDI dataset (mort):</p>
-
-<pre><code>1) Only keep variables that are needed for study (i.e., SEQN, UCOD_LEADING, PERMTH_INT)
-        * SEQN = unique identifier 
-        * UCOD_LEADING = underlying cause of death recode from UCOD_113 (Leading causes)
-        * PERMTH_INT = person months of follow-up from interview date 
-2) Remove entries with missing UCOD_LEADING or PERMTH_INT variables
-3) Create cancer mortality variable (cancer_mort) based on whether 'malignant neoplasms (COO-C97)'
-was recorded as cause of death (UCOD_LEADING) 
-4) Remove UCOD_LEADING from clean_mort dataframe (dataframe should not only have numerical data types) </code></pre>
+<h3 id="Methods-Step-2:-Clean-NDI-dataset-(mort):">Methods Step 2: Clean NDI dataset (mort):<a class="anchor-link" href="#Methods-Step-2:-Clean-NDI-dataset-(mort):">&#182;</a></h3><ol>
+<li>Only keep variables that are needed for study (i.e., SEQN, UCOD_LEADING, PERMTH_INT)<ul>
+<li>SEQN = unique identifier </li>
+<li>UCOD_LEADING = underlying cause of death recode from UCOD_113 (Leading causes)</li>
+<li>PERMTH_INT = person months of follow-up from interview date </li>
+</ul>
+</li>
+<li>Remove entries with missing UCOD_LEADING or PERMTH_INT variables</li>
+<li>Create cancer mortality variable (cancer_mort) based on whether 'malignant neoplasms (COO-C97)'
+ was recorded as cause of death (UCOD_LEADING) </li>
+<li>Remove UCOD_LEADING from clean_mort dataframe (dataframe should not only have numerical data types) </li>
+</ol>
 
 </div>
 </div>
@@ -13543,7 +13555,9 @@ memory usage: 612.2 KB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Methods-Step-3:">Methods Step 3:<a class="anchor-link" href="#Methods-Step-3:">&#182;</a></h3><p>Merge 4 dataframes together (df_merged) using SEQN</p>
+<h3 id="Methods-Step-3:">Methods Step 3:<a class="anchor-link" href="#Methods-Step-3:">&#182;</a></h3><ul>
+<li>Merge 4 dataframes together (df_merged) using SEQN</li>
+</ul>
 
 </div>
 </div>
@@ -13590,8 +13604,9 @@ memory usage: 536.3+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Error:-when-dataframes-were-merged,-duplicate-variables-were-appended-with-_x-or-_y">Error: when dataframes were merged, duplicate variables were appended with _x or _y<a class="anchor-link" href="#Error:-when-dataframes-were-merged,-duplicate-variables-were-appended-with-_x-or-_y">&#182;</a></h4>
-<pre><code>* Solution: Delete variables appended with _x or _y </code></pre>
+<h4 id="Error:-when-dataframes-were-merged,-duplicate-variables-were-appended-with-_x-or-_y">Error: when dataframes were merged, duplicate variables were appended with _x or _y<a class="anchor-link" href="#Error:-when-dataframes-were-merged,-duplicate-variables-were-appended-with-_x-or-_y">&#182;</a></h4><ul>
+<li>Solution: Delete variables appended with _x or _y </li>
+</ul>
 
 </div>
 </div>
@@ -13680,10 +13695,11 @@ memory usage: 492.5+ MB
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Methods-Step-4:-Exclusion-Criteria">Methods Step 4: Exclusion Criteria<a class="anchor-link" href="#Methods-Step-4:-Exclusion-Criteria">&#182;</a></h3><p>The exclusion factors included participants who:</p>
-
-<pre><code>1) were under 18 years of age 
-2) had a self-reported cancer at baseline, and 
-3) had missing values for variables related to the study</code></pre>
+<ol>
+<li>were under 18 years of age </li>
+<li>had a self-reported cancer at baseline, and </li>
+<li>had missing values for variables related to the study</li>
+</ol>
 
 </div>
 </div>
@@ -13820,19 +13836,32 @@ memory usage: 453.6 MB
 </div>
 
 </div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Methods-Step-5:-Cleaning-Dataset">Methods Step 5: Cleaning Dataset<a class="anchor-link" href="#Methods-Step-5:-Cleaning-Dataset">&#182;</a></h3><ol>
+<li>Remove variables with only one unique value</li>
+<li>Remove variables with more than 90% missing values (NaN)</li>
+<li>Remove variables that start with 'WTPQRP' (Fay's BRR Replicate weight for MEC-examined sample)</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Frequency table (crosstabs) using pandas pd.crosstab() function</span>
-<span class="c1"># For cancer_mort outcome</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1: remove variables with only one unique value: </span>
 
-<span class="n">cancer_mort_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df_merged5</span><span class="p">[</span><span class="s1">&#39;cancer_mort&#39;</span><span class="p">],</span>
-                              <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">cancer_mort_freq</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_merged5</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_merged5</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> 
+        <span class="n">df_merged5</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        
+<span class="n">df_merged5</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
-<span class="c1"># 964 cancer deaths; 15,440 other deaths</span>
+<span class="c1"># 16,404 entries; 3,089 columns</span>
 </pre></div>
 
     </div>
@@ -13845,50 +13874,103 @@ memory usage: 453.6 MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[58]:</div>
+    <div class="prompt"></div>
 
 
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>col_0</th>
-      <th>count</th>
-    </tr>
-    <tr>
-      <th>cancer_mort</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15440</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>964</td>
-    </tr>
-  </tbody>
-</table>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 16404 entries, 0 to 17737
+Columns: 3089 entries, SEQN to PFPTECH
+dtypes: float64(2822), int64(267)
+memory usage: 386.7 MB
+</pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2: select columns with more than 90% missing values (NaN) and delete: </span>
+
+<span class="n">limitPer</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_merged5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.90</span>
+<span class="n">df_merged6</span> <span class="o">=</span> <span class="n">df_merged5</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="n">limitPer</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_merged6</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># 16,404 entries; 901 columns </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 16404 entries, 0 to 17737
+Columns: 901 entries, SEQN to BDPD0
+dtypes: float64(634), int64(267)
+memory usage: 112.9 MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#3: delete columns that start with &#39;WTPQRP&#39;</span>
+    <span class="c1"># &#39;WTPQRP1 - WTPQRP52&#39; = Fay&#39;s BRR Replicate weights for MEC- examined sample</span>
+    
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_merged6</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;WTPQRP&#39;</span> <span class="ow">in</span> <span class="n">col</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">df_merged6</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+
+<span class="n">df_merged6</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># 16,404 entries; 849 columns </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 16404 entries, 0 to 17737
+Columns: 849 entries, SEQN to BDPD0
+dtypes: float64(582), int64(267)
+memory usage: 106.4 MB
+</pre>
+</div>
 </div>
 
 </div>
@@ -13898,10 +13980,11 @@ memory usage: 453.6 MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Methods-Step-5:">Methods Step 5:<a class="anchor-link" href="#Methods-Step-5:">&#182;</a></h3><p>Remove highly correlated variables:</p>
-
-<pre><code>1) calculate correlation (create correlation heat-map)
-2) compare correlation between variables and remove those that have a correlation higher than 0.9</code></pre>
+<h3 id="Methods-Step-6:-Finish-cleaning-dataset">Methods Step 6: Finish cleaning dataset<a class="anchor-link" href="#Methods-Step-6:-Finish-cleaning-dataset">&#182;</a></h3><ol>
+<li>Calculate correlation (create correlation heat-map)</li>
+<li>Compare correlation between variables and remove those that have a correlation higher than 0.9</li>
+<li>Remove observations with missing value (NaN) in any of the columns </li>
+</ol>
 
 </div>
 </div>
@@ -14005,7 +14088,67 @@ memory usage: 56.4 MB
 </div>
 </div>
 
-</div></section></section><section><section>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#3: delete entries with missing value (NaN) in any of the columns</span>
+<span class="c1"># make all variables numeric type</span>
+
+<span class="n">df_merged8</span> <span class="o">=</span> <span class="n">df_merged7</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_merged8</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_merged8</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df_merged8</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># 10,242 entries; 450 columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 10242 entries, 0 to 17736
+Columns: 450 entries, SEQN to BDPSCAN
+dtypes: float64(200), int64(250)
+memory usage: 35.2 MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Final-Dataset:">Final Dataset:<a class="anchor-link" href="#Final-Dataset:">&#182;</a></h3><ul>
+<li><p>450 variables (includes SEQN, PERMTH_INT, and cancer_mort)</p>
+</li>
+<li><p>10,242 participants</p>
+<ul>
+<li>600 (59%) participants with a NDI file that indicated cancer as the leading cause of death</li>
+<li>Mean age: 44.7 yeas </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[66]:</div>
@@ -14077,38 +14220,16 @@ memory usage: 56.4 MB
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># randomly choose 25 variables </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Final dataset info: </span>
 
-<span class="n">df_random2</span> <span class="o">=</span>  <span class="n">predictors</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">right</span> <span class="o">=</span> <span class="s1">&#39; + &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_random2</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[114]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cox Proportional Hazard Model</span>
-
-<span class="n">outcome</span> <span class="o">=</span> <span class="n">df_merged9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">predictors</span> <span class="o">=</span> <span class="n">df_merged9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">mod</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">phreg</span><span class="p">(</span><span class="s2">&quot;PERMTH_INT ~ &quot;</span> <span class="o">+</span> <span class="n">right</span><span class="p">,</span>
-                <span class="n">predictors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">outcome</span><span class="p">,</span> <span class="n">ties</span><span class="o">=</span><span class="s2">&quot;efron&quot;</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="n">df_merged8</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">df_merged8</span><span class="o">.</span><span class="n">HSAGEIR</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14125,84 +14246,179 @@ memory usage: 56.4 MB
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>                        Results: PHReg
-===============================================================
-Model:                    PH Reg         Sample size:     10220
-Dependent variable:       PERMTH_INT     Num. events:     600  
-Ties:                     Efron                                
----------------------------------------------------------------
-          log HR log HR SE   HR      t     P&gt;|t|  [0.025 0.975]
----------------------------------------------------------------
-HAN7CS   -0.0003    0.0008 0.9997  -0.3692 0.7120 0.9981 1.0013
-HAINTVR  -0.0001    0.0001 0.9999  -0.4578 0.6471 0.9997 1.0002
-HAN5CS    0.0012    0.0010 1.0012   1.2998 0.1937 0.9994 1.0031
-HAN6JS    0.0023    0.0009 1.0023   2.6417 0.0082 1.0006 1.0040
-WTPXRP28 -0.0000    0.0000 1.0000  -0.1049 0.9165 1.0000 1.0000
-HAN6DS   -0.0020    0.0022 0.9980  -0.9279 0.3535 0.9937 1.0022
-HAQ5      0.1327    0.1169 1.1419   1.1352 0.2563 0.9081 1.4358
-DEPCS86   0.0453    0.0232 1.0463   1.9521 0.0509 0.9998 1.0949
-DEPRSFLG  0.2319    0.0748 1.2609   3.0988 0.0019 1.0889 1.4601
-HAP2     -0.1599    0.0394 0.8522  -4.0541 0.0001 0.7888 0.9207
-HFF13A   -0.0173    0.0170 0.9828  -1.0158 0.3097 0.9505 1.0162
-HAN6IS   -0.0031    0.0035 0.9969  -0.9083 0.3637 0.9902 1.0036
-HAT1S    -0.0065    0.0037 0.9936  -1.7521 0.0798 0.9864 1.0008
-HAP12    -0.1302    0.1099 0.8779  -1.1847 0.2361 0.7078 1.0889
-HAB7     -0.0229    0.0021 0.9773 -10.7117 0.0000 0.9732 0.9814
-HFE2     -0.0091    0.0128 0.9909  -0.7152 0.4745 0.9665 1.0160
-HFF2R     0.0023    0.0162 1.0024   0.1450 0.8847 0.9710 1.0347
-HAR1     -0.8665    0.0923 0.4204  -9.3902 0.0000 0.3509 0.5038
-HAN3CS   -0.0048    0.0036 0.9952  -1.3215 0.1863 0.9882 1.0023
-WTPXRP15 -0.0000    0.0000 1.0000  -0.0649 0.9483 1.0000 1.0000
-HAS19     0.0497    0.0428 1.0509   1.1606 0.2458 0.9664 1.1429
-HAN6FS    0.0001    0.0001 1.0001   0.8134 0.4160 0.9999 1.0003
-HAQ2A    -0.0866    0.0483 0.9171  -1.7940 0.0728 0.8343 1.0080
-HAP8      0.0295    0.1027 1.0300   0.2875 0.7737 0.8422 1.2595
-HAY9     -0.0693    0.0665 0.9331  -1.0425 0.2972 0.8191 1.0629
-HAZA8BK1  0.0000    0.0003 1.0000   0.0729 0.9419 0.9994 1.0006
-HAF1     -0.1667    0.0920 0.8465  -1.8119 0.0700 0.7068 1.0137
-HAJ0      0.7103    0.1222 2.0347   5.8134 0.0000 1.6014 2.5853
-HAC4A     0.0224    0.0378 1.0227   0.5941 0.5524 0.9497 1.1012
-HAN3FS    0.0007    0.0009 1.0007   0.7863 0.4317 0.9989 1.0026
-BMPTHI    0.0000    0.0000 1.0000   0.5117 0.6088 1.0000 1.0000
-HFE7      0.0664    0.0898 1.0686   0.7395 0.4596 0.8962 1.2742
-HAN6HS    0.0007    0.0008 1.0007   0.8230 0.4105 0.9991 1.0023
-WTPXRP45 -0.0000    0.0000 1.0000  -0.7423 0.4579 1.0000 1.0000
-HAN5BS    0.0003    0.0014 1.0003   0.1936 0.8465 0.9976 1.0029
-HAN4ES    0.0014    0.0007 1.0014   1.9598 0.0500 1.0000 1.0029
-MOPPCNT   0.0000    0.0000 1.0000   0.6937 0.4879 1.0000 1.0000
-HAM11     0.0152    0.0432 1.0153   0.3512 0.7255 0.9329 1.1049
-WTPXRP37  0.0000    0.0000 1.0000   0.3058 0.7597 1.0000 1.0000
-HFE9     -0.1312    0.0793 0.8770  -1.6556 0.0978 0.7508 1.0244
-HAF27     0.1875    0.1589 1.2063   1.1800 0.2380 0.8834 1.6471
-HAT27     0.0427    0.0587 1.0436   0.7265 0.4675 0.9302 1.1708
-HFA8R     0.0036    0.0055 1.0036   0.6531 0.5137 0.9929 1.0144
-DEP3M4    0.1973    0.1128 1.2181   1.7493 0.0802 0.9765 1.5193
-HAE11B    0.0288    0.0570 1.0292   0.5042 0.6142 0.9203 1.1509
-HAL19A    0.0028    0.0819 1.0028   0.0347 0.9723 0.8542 1.1774
-URP       0.0000    0.0000 1.0000   0.6743 0.5001 1.0000 1.0000
-WTPXRP6  -0.0000    0.0000 1.0000  -2.8245 0.0047 1.0000 1.0000
-HAT10     0.4596    0.1367 1.5835   3.3634 0.0008 1.2114 2.0698
-HAY11A   -0.4772    0.5809 0.6205  -0.8214 0.4114 0.1987 1.9376
-===============================================================
-Confidence intervals are for the hazard ratios
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 10242 entries, 0 to 17736
+Columns: 450 entries, SEQN to BDPSCAN
+dtypes: float64(200), int64(250)
+memory usage: 35.2 MB
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[151]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>44.745752782659636</pre>
+</div>
+
 </div>
 
 </div>
 </div>
 
 </div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Analysis-Steps:">Analysis Steps:<a class="anchor-link" href="#Analysis-Steps:">&#182;</a></h3><ol>
+<li>Set cancer_mort and all other variables as their own dataframes (outcome and predictors, respectively)</li>
+<li>Randomly select 50 variables (set seed as 1993 for demonstration purpose) </li>
+<li>Fit these 50 variables to a Cox proportional hazard model </li>
+<li>Plot the hazard ratios (HR) and p-values (volcano plot) </li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[164]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1: Set outcome and predictors dataframes</span>
+
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">df_merged9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">df_merged9</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[176]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2: Randomly select 50 variables from predictors dataframe</span>
+    <span class="c1"># Seed is set to 1993 for demonstration purpose</span>
+        <span class="c1"># This way, with every run, the same 50 variables are selected</span>
+
+<span class="n">df_random</span> <span class="o">=</span> <span class="n">predictors</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1993</span><span class="p">)</span>
+<span class="n">random_vars</span> <span class="o">=</span> <span class="s1">&#39; + &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_random</span><span class="p">))</span>
+
+<span class="n">random_vars</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[176]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;DEPCS7 + HAG33 + HAY11E + PEPLEVEL + HAL18 + HAS17 + HAE10 + HAK11 + HAV3S + DEPSE1 + BMPWT + HFF1 + WTPXRP36 + DEPRSFLG + HFHFIPCR + HAM6S + HAT28 + VCP + MOPPCNT + HAQ3S + HAK10 + HAK9 + HAN1C + SPPTECH1 + WTPFQX6 + DEPCS67 + HAR14 + HAN5AS + HFB1 + HAN4BS + HAQ7 + WTPXRP23 + HAM7 + HAC1F + HAP12 + WTPXRP19 + DEPCS72 + WTPXRP24 + HFINTVR + WTPXRP13 + HFA12 + WTPXRP15 + HAY11A + HFE3 + DEPSE9 + HAN2ES + HFF14A + HAN2GS + BMPWTFLG + PEP1&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[178]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#3: Cox proportional hazard model</span>
+
+<span class="n">mod</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">phreg</span><span class="p">(</span><span class="s2">&quot;PERMTH_INT ~ &quot;</span> <span class="o">+</span> <span class="n">random_vars</span><span class="p">,</span>
+                <span class="n">predictors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">outcome</span><span class="p">,</span> <span class="n">ties</span><span class="o">=</span><span class="s2">&quot;efron&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set hazard ratio results as &#39;hr&#39; and p-value results as p-vals</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">hr</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;HR&#39;</span><span class="p">]</span>
+<span class="n">pvals</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;P&gt;|t|&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interpretation-of-Volcano-Plot:-(presented-below)">Interpretation of Volcano Plot: (presented below)<a class="anchor-link" href="#Interpretation-of-Volcano-Plot:-(presented-below)">&#182;</a></h3><ul>
+<li>Each point in the volcano plot represents the hazard ratio for one of the 50 predictor variables chosen. </li>
+<li>The hazard ratios were found by fitting the predictor variables to a Cox proportional hazard model. </li>
+<li><p>Variables are considered to be highly significant if their negative log10 p-values (y-axis) are above 10, 
+regardless of their hazard ratio (x-axis).</p>
+</li>
+<li><p>As seen in the plot below, the majority (&gt;90%) of the predictor variables have HRs centered around 1.0 and are not 
+highly significant. Having a HR of 1.0 signifies that the variable has a net neutral effect on the outcome.</p>
+</li>
+<li>This result is to be expected from choosing 50 random variables from a list of 450 variables that were <strong>not</strong> collected with the purpose of predicting cancer mortality. </li>
+</ul>
+<h5 id="However,-among-the-50-predictor-variables-that-were-chosen-with-the-seed-1993,-the-two-variables-that-were-found-to-be-highly-significant-are-both-age-related-variables.--Both-can-be-interpreted-as:-older-age-is-strongly-associated-with-the-risk-of-cancer-mortality.">However, among the 50 predictor variables that were chosen with the seed 1993, the two variables that were found to be highly significant are both age-related variables.  Both can be interpreted as: older age is strongly associated with the risk of cancer mortality.<a class="anchor-link" href="#However,-among-the-50-predictor-variables-that-were-chosen-with-the-seed-1993,-the-two-variables-that-were-found-to-be-highly-significant-are-both-age-related-variables.--Both-can-be-interpreted-as:-older-age-is-strongly-associated-with-the-risk-of-cancer-mortality.">&#182;</a></h5><ol>
+<li>HAM7 (Age of participant): [far right]<ul>
+<li>Code: 1 = 25 years or less; 2 = 26-35 years old; 3 = 36 years and older</li>
+<li>HR = 3.1170, p&lt;0.0001</li>
+</ul>
+</li>
+<li>HAQ7 (Age of participant): [far left]<ul>
+<li>Code: 1 = 50+ years; 2 = Under 50 years</li>
+<li>HR = 0.2791, p&lt;0.0001</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[183]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot hazard ratios and p-values (volcano plot)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">pvals</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;P&gt;|t|&#39;</span><span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">neg_log10p</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">pvals</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;HR&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;neg_log10p&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;volc.png&#39;</span><span class="p">)</span>
 </pre></div>
@@ -14223,7 +14439,7 @@ Confidence intervals are for the hazard ratios
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
+<img src="data:image/png;base64,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
 "
 >
 </div>
